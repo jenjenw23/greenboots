@@ -1,0 +1,87 @@
+.jumbotron {
+    background-image: url("/assets/images/header.jpg");
+    color: #66b6d8;
+    font-family: 'Roboto', sans-serif;
+    padding: 90px 20px 60px 20px;
+    width: 100%;
+}
+
+body {
+    background: #ECEFF1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    margin: 100px 0 0 0;
+}
+
+h1 {
+    color: #000;
+}
+
+h2 {
+    color: #6ba7d6;
+}
+
+h3 {
+    color: #273454;
+    font-size: 25px;
+}
+
+.row {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 960px;
+}
+
+.h3 .correct {
+    -webkit-animation: 1s correct;
+    animation: 1s correct
+}
+
+.h3 .incorrect {
+    -webkit-animation: 1s incorrect;
+    animation: 1s incorrect
+}
+
+@-webkit-keyframes correct {
+    0% {color: #fff}
+    20% {color: #2e7d32}
+    40% {color: #fff}
+    60% {font-weight: #2e7d32}
+    80% {font-weight: #fff}
+    to {font-weight: #2e7d32}
+}
+
+@keyframes correct {
+    0% {color: #fff}
+    20% {color: #2e7d32}
+    40% {color: #fff}
+    60% {font-weight: #2e7d32}
+    80% {font-weight: #fff}
+    to {font-weight: #2e7d32}
+}
+
+@-webkit-keyframes incorrect {
+    0% {color: #fff}
+    20% {color: #c62828}
+    40% {color: #fff}
+    60% {font-weight: #c62828}
+    80% {font-weight: #fff}
+    to {font-weight: #c62828}
+}
+
+@keyframes incorrect {
+    0% {color: #fff}
+    20% {color: #c62828}
+    40% {color: #fff}
+    60% {font-weight: #c62828}
+    80% {font-weight: #fff}
+    to {font-weight: #c62828}
+}
