@@ -1,9 +1,6 @@
-import React, { Component } from "react";
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
-import { Button } from 'react-bootstrap';
-import Wrapper from "./components/Wrapper";
-import "./App.css";
+import React, { Component } from 'react';
+import { Navbar, Button } from 'react-bootstrap';
+import './App.css';
 
 class App extends Component {
   goTo(route) {
