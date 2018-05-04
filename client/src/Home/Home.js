@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import Footer from "./components/Footer/Footer";
 
 class Home extends Component {
   getExpiryDate() {
@@ -25,13 +26,17 @@ class Home extends Component {
             </p>
           </div>}
         {!isAuthenticated() &&
-          <h4>
-            You are not logged in! Please{' '}
-            <a style={{ cursor: 'pointer' }} onClick={login.bind(this)}>
-              Log In
-            </a>{' '}
-            to continue.
-          </h4>}
+          <div>
+            <h4>
+              You are not logged in! Please{' '}
+              <a style={{ cursor: 'pointer' }} onClick={login.bind(this)}>
+                Log In
+              </a>{' '}
+              to continue.
+            </h4>
+            <footer>abojt alkdf</footer>
+          </div>}
+          
       </div>
     );
   }
