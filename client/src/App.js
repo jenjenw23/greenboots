@@ -53,8 +53,7 @@ class App extends Component {
                 <a className="nav-item nav-link" href="/">Contact</a>
                 {/*<a className="nav-item nav-link" href="/">Login/Register</a>
     <a className="nav-item nav-link" href="/">Register</a>*/}
-              </div> 
-            </div>
+
             {!isAuthenticated() &&
               <Button
                 bsStyle="warning"
@@ -78,7 +77,7 @@ class App extends Component {
                 onClick={this.renewToken.bind(this)}
               >
                 Renew Token
-            </Button>}*/}
+            </Button>}*/} 
             {isAuthenticated() &&
               <Button
                 bsStyle="warning"
@@ -87,7 +86,8 @@ class App extends Component {
               >
                 Log Out
               </Button>}
-          
+              </div> 
+              </div>
         </nav>
         </Navbar.Header>
       </Navbar>
