@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Navbar, Button } from 'react-bootstrap';
+// import Sidebar from "./components/Sidebar/Sidebar";
+// import Trails from "./components/Trails/Trails";
+import Footer from "./components/Footer/Footer";
 import './App.css';
 
 class App extends Component {
@@ -26,50 +29,73 @@ class App extends Component {
       <div>
         <Navbar fluid>
           <Navbar.Header>
-            <Navbar.Brand>
-              <a onClick={this.goTo.bind(this, 'home')}>Auth0 - React</a>
-            </Navbar.Brand>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
-            >
-              Home
-            </Button>
-            {!isAuthenticated() &&
-              <Button
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.login.bind(this)}
+            <nav className="navbar navbar-expand-lg py-3 fixed-top navbar-dark bg-dark">
+
+              <a onClick={this.goTo.bind(this, 'home')}>
+                <img src="/assets/img/logo.png" className="d-inline-block align-top logo" width="100%" alt="Greenboots logo"></img>
+              </a>
+
+              <button
+                type="button"
+                className="navbar-toggler btn-warning"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                onClick={this.goTo.bind(this, 'home')}
               >
-                Log In
+                <span className="navbar-toggler-icon"></span>
+                Home
+            </button>
+              <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                  <a className="nav-item nav-link" href="/">Home</a>
+                  <a className="nav-item nav-link"  onClick={this.goTo.bind(this, 'trails')}>Popular Trails</a>
+                  <a className="nav-item nav-link" href="/">Contact</a>
+                  {/*<a className="nav-item nav-link" href="/">Login/Register</a>
+                    <a className="nav-item nav-link" href="/">Register</a>*/}
+
+                  {!isAuthenticated() &&
+                    <Button
+                      bsStyle="warning"
+                      className="btn-margin"
+                      onClick={this.login.bind(this)}
+                    >
+                      Log In
               </Button>}
-            {isAuthenticated() &&
-              <Button
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.goTo.bind(this, 'profile')}
-              >
-                Profile
+                  {isAuthenticated() &&
+                    <Button
+                      bsStyle="warning"
+                      className="btn-margin"
+                      onClick={this.goTo.bind(this, 'profile')}
+                    >
+                      Profile
               </Button>}
-            {isAuthenticated() &&
+                  {/*{isAuthenticated() &&
               <Button
-                bsStyle="primary"
+                bsStyle="warning"
                 className="btn-margin"
                 onClick={this.renewToken.bind(this)}
               >
                 Renew Token
+            </Button>}*/}
+                  {isAuthenticated() &&
+                    <Button
+                      bsStyle="warning"
+                      className="btn-margin"
+                      onClick={this.logout.bind(this)}
+                    >
+                      Log Out
               </Button>}
-            {isAuthenticated() &&
-              <Button
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.logout.bind(this)}
-              >
-                Log Out
-              </Button>}
+                </div>
+              </div>
+            </nav>
           </Navbar.Header>
         </Navbar>
+        {/*<Sidebar />*/}
+        {/*<Trails />*/}
+        <Footer />
       </div>
     );
   }
