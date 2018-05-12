@@ -7,7 +7,7 @@ class Navbar extends Component {
       <nav className="navbar navbar-expand-lg py-3 fixed-top navbar-dark bg-dark">
     <div className="container">
     <a className="navbar-brand" href="/">
-    <img src="../../img/logo.png" className="d-inline-block align-top logo" width="100%" alt="Greenboots logo"></img>
+    <img src="/img/logo.png" className="d-inline-block align-top logo" width="100%" alt="Greenboots logo"></img>
     </a>  
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
         <span className="navbar-toggler-icon"></span>
