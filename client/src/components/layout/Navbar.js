@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg py-3 fixed-top navbar-dark bg-dark">
     <div className="container">
-    <a className="navbar-brand" href="/">
+    <Link className="navbar-brand" to="/">
+    
     <img src="/img/logo.png" className="d-inline-block align-top logo" width="100%" alt="Greenboots logo"></img>
-    </a>  
+    </Link>  
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -16,8 +17,9 @@ class Navbar extends Component {
       <div className="collapse navbar-collapse" id="mobile-nav">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <a className="nav-link" href="profiles.html"> Hiker Profiles
-            </a>
+            <Link className="nav-link" to="/profiles"> Hiker Profiles
+            {' '}
+            </Link>
           </li>
         </ul>
 
@@ -26,10 +28,14 @@ class Navbar extends Component {
           <a className="nav-item nav-link" href="/trails">Popular Trails</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="register.html">Sign Up</a>
+            <Link className="nav-link" to="/register">
+            Sign Up
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="login.html">Login</a>
+          <Link className="nav-link" to="/login">
+            Login
+            </Link>
           </li>
         </ul>
       </div>

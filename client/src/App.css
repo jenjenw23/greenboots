@@ -28,6 +28,10 @@ img {
   font-family: 'Scope One', serif;
   padding: 70px;
 }
+.display-4 {
+  font-family: 'Scope One', serif;
+  margin-top: 180px;
+}
 .card-form {
   opacity: 0.9;
 }
