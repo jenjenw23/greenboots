@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import axios from "axios";
 
 class Login extends Component {
   constructor() {
@@ -9,13 +8,11 @@ class Login extends Component {
       password: "",
       errors: {}
     };
+
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
   onSubmit(e) {
     e.preventDefault();
 
@@ -23,8 +20,14 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
+
     console.log(user);
   }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   render() {
     return (
       <div className="login">
@@ -32,7 +35,9 @@ class Login extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Log In</h1>
-              <p className="lead text-center">Sign in to your hiker account</p>
+              <p className="lead text-center">
+                Sign in to your DevConnector account
+              </p>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
