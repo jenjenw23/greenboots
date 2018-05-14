@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 
 class Landing extends Component {
   //prevent people from typing in /login when they are already logged in.  That would be weird
+  //we now have access to this since we brought auth.state into auth property
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
@@ -22,8 +23,8 @@ class Landing extends Component {
                 <h1 className="display-3 mb-4">WELCOME</h1>
                 <p className="lead">
                   {" "}
-                  Create a hiking profile/portfolio, share posts and connect
-                  with other hikers
+                  Create a hiking profile, share posts and connect with other
+                  hikers
                 </p>
                 <hr />
                 <Link to="/register" className="btn btn-lg btn-info mr-2">
