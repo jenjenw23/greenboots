@@ -25,10 +25,10 @@ class Register extends Component {
       this.props.history.push("/dashboard");
     }
   }
-
+  // Runs when your component receives new properties
   componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+    if (nextProps.errors) { // Test for errors property
+      this.setState({ errors: nextProps.errors }); // If there is an error set it to the component state
     }
   }
 

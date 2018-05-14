@@ -7,12 +7,12 @@ import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios //if no errors it should register because it is hitting the backend api
-    .post("/api/users/register", userData)
-    //redirect us to login
+    .post("/api/users/register", userData) //<< Hit our backend API and register userData
+    // if successful redirect us to login
     .then(res => history.push("/login"))
     .catch(err =>
       dispatch({
-        type: GET_ERRORS,
+        type: GET_ERRORS, //<< Dispatch an actionType called "GET_ERRORS"
         payload: err.response.data
       })
     );
