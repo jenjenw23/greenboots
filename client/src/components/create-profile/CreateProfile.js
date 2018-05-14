@@ -16,6 +16,7 @@ class CreateProfile extends Component {
       handle: '',
       location: '',
       skills: '',
+      bio: '',
       twitter: '',
       facebook: '',
       linkedin: '',
@@ -41,6 +42,7 @@ class CreateProfile extends Component {
       handle: this.state.handle,
       location: this.state.location,
       skills: this.state.skills,
+      bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
       linkedin: this.state.linkedin,
@@ -136,7 +138,16 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname"
+                  info="A unique handle for your profile URL."
+                />
+                 <SelectListGroup
+                  placeholder="Status"
+                  name="status"
+                  value={this.state.status}
+                  onChange={this.onChange}
+                  options={options}
+                  error={errors.status}
+                  info="Give us an idea of where you are at in your career"
                 />
                 <TextFieldGroup
                   placeholder="Location"
