@@ -5,7 +5,7 @@ module.exports = function validateProfileInput(data) {
   let errors = {};
   //we need our data to be an empty string
   data.handle = !isEmpty(data.handle) ? data.handle : "";
-  data.status = !isEmpty(data.status) ? data.status : "";
+  // data.status = !isEmpty(data.status) ? data.status : "";
   data.skills = !isEmpty(data.skills) ? data.skills : "";
 
   if (!Validator.isLength(data.handle, { min: 2, max: 40 })) {
@@ -16,20 +16,10 @@ module.exports = function validateProfileInput(data) {
     errors.handle = "Profile handle is required";
   }
 
-  if (Validator.isEmpty(data.status)) {
-    errors.status = "Status field is required";
-  }
-
   if (Validator.isEmpty(data.skills)) {
     errors.skills = "Skills field is required";
   }
-  //checking to see if it is not empty
-  if (!isEmpty(data.website)) {
-    //if it isn't then check to maker sure it is a URL
-    if (!Validator.isURL(data.website)) {
-      errors.website = "Not a valid URL";
-    }
-  }
+  
   //checking to see if it is not empty
   if (!isEmpty(data.youtube)) {
     //if it isn't then check to maker sure it is a URL
