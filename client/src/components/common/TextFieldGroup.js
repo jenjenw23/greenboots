@@ -1,8 +1,10 @@
-import React from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
-
+import React from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
+//when using a functional based component and you are
+// going to except properties, you want to put those properties...
 const TextFieldGroup = ({
+  //here
   name,
   placeholder,
   value,
@@ -17,8 +19,8 @@ const TextFieldGroup = ({
     <div className="form-group">
       <input
         type={type}
-        className={classnames('form-control form-control-lg', {
-          'is-invalid': error
+        className={classnames("form-control form-control-lg", {
+          "is-invalid": error
         })}
         placeholder={placeholder}
         name={name}
@@ -32,6 +34,7 @@ const TextFieldGroup = ({
   );
 };
 
+//adding in our propTypes
 TextFieldGroup.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
@@ -39,12 +42,14 @@ TextFieldGroup.propTypes = {
   info: PropTypes.string,
   error: PropTypes.string,
   type: PropTypes.string.isRequired,
+  //onchange is a function not a string
+  //hence the .func
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.string
 };
 
 TextFieldGroup.defaultProps = {
-  type: 'text'
+  type: "text"
 };
 
 export default TextFieldGroup;
