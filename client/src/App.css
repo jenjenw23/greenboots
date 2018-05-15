@@ -10,7 +10,11 @@ html {
 body {
   background: #ECEFF1;
   font-family: 'Roboto', sans-serif;
-  margin: 130px 0 60px 0;
+  margin: 0 0 60px 0;
+}
+
+.spacer{
+  height: 120px;
 }
 
 .landing {

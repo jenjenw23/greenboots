@@ -64,11 +64,10 @@ class Search extends Component {
     return (
       <div>
         <Wrapper>
-          <div className="container text-center">
-
+          <div className="container">
+          <div className="spacer"></div>
             <div className="row">
               <form>
-                
               <input id='pac-input' className='form-control form-control-lg pac-input' type='text' placeholder='Enter a location, zip code, or address' />
               <button type='submit' className='btn btn-primary' onClick={this.zipcodeTranslate}>Search for Trails</button> 
               </form> 
