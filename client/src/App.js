@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
@@ -62,36 +62,30 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
-              <Route>
+              <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Route>
-              <Route>
+              </Switch>
+              <Switch>
                 <PrivateRoute
                   exact
-                  path="/create-profile"
-                  component={CreateProfile}
-                />
-              </Route>
-              <Route>
+                  path="/create-profile" component={CreateProfile} />
+              </Switch>
+              <Switch>
                 <PrivateRoute
                   exact
-                  path="/edit-profile"
-                  component={EditProfile}
-                />
-              </Route>
-              <Route>
+                  path="/edit-profile" component={EditProfile} />
+              </Switch>
+              <Switch>
                 <PrivateRoute
                   exact
-                  path="/add-experience"
-                  component={AddExperience}
-                />
-              </Route>
-              <Route>
+                  path="/add-experience" component={AddExperience} />
+              </Switch>
+              <Switch>
                 <PrivateRoute exact path="/post" component={Posts} />
-              </Route>
-              <Route>
+              </Switch>
+              <Switch>
                 <PrivateRoute exact path="/post/:id" component={Post} />
-              </Route>
+              </Switch>
               <Route exact path="/not-found" component={NotFound} />
             </div>
             <Footer />

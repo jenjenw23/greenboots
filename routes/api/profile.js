@@ -10,7 +10,6 @@ var passport = require("passport"); //passport for protected routes
 // Load Validation
 const validateProfileInput = require("../../validation/profile");
 const validateExperienceInput = require("../../validation/experience");
-const validateEducationInput = require("../../validation/education");
 
 //load Profile model
 const Profile = require("../../models/Profile");

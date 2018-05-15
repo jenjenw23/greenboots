@@ -147,7 +147,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   options={options}
                   error={errors.status}
-                  info="Give us an idea of where you are at in your career"
+                  info="What is your skill level in hiking"
                 />
                 <TextFieldGroup
                   placeholder="Location"
@@ -155,7 +155,7 @@ class CreateProfile extends Component {
                   value={this.state.location}
                   onChange={this.onChange}
                   error={errors.location}
-                  info="City or city & state suggested (eg. Boston, MA)"
+                  info="What is your location (eg. Boston, MA)"
                 />
                 <TextFieldGroup
                   placeholder="* Skills"
