@@ -81,6 +81,11 @@ class Navbar extends Component {
                   Hiker Profiles{" "}
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/search-trails">  {" "}
+                Search Trails{" "}
+                </Link>
+          </li>
             </ul>
 
             <ul className="navbar-nav ml-auto">
