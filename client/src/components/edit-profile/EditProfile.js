@@ -49,6 +49,7 @@ class CreateProfile extends Component {
       profile.location = !isEmpty(profile.location) ? profile.location : '';
       profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
       profile.social = !isEmpty(profile.social) ? profile.social : {};
+<<<<<<< Updated upstream
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
         : '';
@@ -64,6 +65,13 @@ class CreateProfile extends Component {
       profile.instagram = !isEmpty(profile.social.instagram)
         ? profile.social.instagram
         : '';
+=======
+      profile.twitter = !isEmpty(profile.social.twitter) ? profile.social.twitter : "";
+      profile.facebook = !isEmpty(profile.social.facebook) ? profile.social.facebook : "";
+      profile.linkedin = !isEmpty(profile.social.linkedin) ? profile.social.linkedin : "";
+      profile.youtube = !isEmpty(profile.social.youtube) ? profile.social.youtube : "";
+      profile.instagram = !isEmpty(profile.social.instagram) ? profile.social.instagram : "";
+>>>>>>> Stashed changes
 
       // Set component fields state
       this.setState({
@@ -209,10 +217,14 @@ class CreateProfile extends Component {
                   value={this.state.skills}
                   onChange={this.onChange}
                   error={errors.skills}
+<<<<<<< Updated upstream
                   info="Please use comma separated values (eg.
                     HTML,CSS,JavaScript,PHP"
+=======
+                  info="Please use comma separated values (eg. granola munching, machete skills, tent pitching)"
+>>>>>>> Stashed changes
                 />
-                <TextAreaFieldGroup
+                <TextFieldGroup
                   placeholder="Short Bio"
                   name="bio"
                   value={this.state.bio}

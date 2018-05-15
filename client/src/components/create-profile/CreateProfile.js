@@ -163,8 +163,7 @@ class CreateProfile extends Component {
                   value={this.state.skills}
                   onChange={this.onChange}
                   error={errors.skills}
-                  info="Please use comma separated values (eg.
-                    HTML,CSS,JavaScript,PHP"
+                  info="Please use comma separated values"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
@@ -203,7 +202,7 @@ class CreateProfile extends Component {
   }
 }
 
-CreateProfile.propTypes = {
+CreateProfile.PropTypes = {
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };

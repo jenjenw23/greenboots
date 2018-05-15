@@ -10,6 +10,7 @@ class AddExperience extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      trail: '',
       location: '',
       from: '',
       errors: {},
@@ -31,9 +32,9 @@ class AddExperience extends Component {
     e.preventDefault();
 
     const expData = {
+      trail: this.state.trail,
       location: this.state.location,
-      from: this.state.from,
-      description: this.state.description
+      from: this.state.from
     };
 
     this.props.addExperience(expData, this.props.history);

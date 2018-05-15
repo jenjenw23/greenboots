@@ -80,6 +80,7 @@ class App extends Component {
                   exact
                   path="/add-experience" component={AddExperience} />
               </Switch>
+
               <Switch>
                 <PrivateRoute exact path="/post" component={Posts} />
               </Switch>

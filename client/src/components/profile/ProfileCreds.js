@@ -22,14 +22,22 @@ class ProfileCreds extends Component {
         <p>
           {exp.location === '' ? null : (
             <span>
+<<<<<<< Updated upstream
               <strong>Location: </strong> {exp.location}
+=======
+              <strong>trail: </strong> {exp.trail}
+>>>>>>> Stashed changes
             </span>
           )}
         </p>
         <p>
           {exp.description === '' ? null : (
             <span>
+<<<<<<< Updated upstream
               <strong>Description: </strong> {exp.description}
+=======
+              <strong>Location: </strong> {exp.location}
+>>>>>>> Stashed changes
             </span>
           )}
         </p>

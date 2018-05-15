@@ -38,9 +38,15 @@ class Experience extends Component {
         <table className="table">
           <thead>
             <tr>
+<<<<<<< Updated upstream
               <th>Company</th>
               <th>Title</th>
               <th>Years</th>
+=======
+              <th>Trails Taken</th>
+              <th>Location</th>
+              <th>Date of Experience</th>
+>>>>>>> Stashed changes
               <th />
             </tr>
             {experience}
