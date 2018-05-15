@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Moment from 'react-moment';
-import { deleteExperience } from '../../actions/profileActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Moment from "react-moment";
+import { deleteExperience } from "../../actions/profileActions";
 
 class Experience extends Component {
   onDeleteClick(id) {
@@ -12,15 +12,9 @@ class Experience extends Component {
   render() {
     const experience = this.props.experience.map(exp => (
       <tr key={exp._id}>
-        <td>{exp.company}</td>
-        <td>{exp.title}</td>
+        <td>{exp.trails}</td>
         <td>
-          <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
-          {exp.to === null ? (
-            ' Now'
-          ) : (
-            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
-          )}
+          <Moment format="DD/MM/YYYY">{exp.from}</Moment>
         </td>
         <td>
           <button
@@ -34,13 +28,12 @@ class Experience extends Component {
     ));
     return (
       <div>
-        <h4 className="mb-4">Experience Credentials</h4>
+        <h4 className="mb-4">Trail List</h4>
         <table className="table">
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Title</th>
-              <th>Years</th>
+              <th>Trails Taken</th>
+              <th>Date of Experience</th>
               <th />
             </tr>
             {experience}

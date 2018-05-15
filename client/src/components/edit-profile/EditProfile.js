@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
-import SelectListGroup from '../common/SelectListGroup';
-import { createProfile, getCurrentProfile } from '../../actions/profileActions';
-import isEmpty from '../../validation/is-empty';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import InputGroup from "../common/InputGroup";
+import SelectListGroup from "../common/SelectListGroup";
+import { createProfile, getCurrentProfile } from "../../actions/profileActions";
+import isEmpty from "../../validation/is-empty";
 
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displaySocialInputs: false,
-      handle: '',
-      location: '',
-      skills: '',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
+      handle: "",
+      location: "",
+      skills: "",
+      bio: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+      youtube: "",
+      instagram: "",
       errors: {}
     };
 
@@ -43,27 +43,27 @@ class CreateProfile extends Component {
       const profile = nextProps.profile.profile;
 
       // Bring skills array back to CSV
-      const skillsCSV = profile.skills.join(',');
+      const skillsCSV = profile.skills.join(",");
 
       // If profile field doesnt exist, make empty string
-      profile.location = !isEmpty(profile.location) ? profile.location : '';
-      profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
+      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
       profile.social = !isEmpty(profile.social) ? profile.social : {};
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
-        : '';
+        : "";
       profile.facebook = !isEmpty(profile.social.facebook)
         ? profile.social.facebook
-        : '';
+        : "";
       profile.linkedin = !isEmpty(profile.social.linkedin)
         ? profile.social.linkedin
-        : '';
+        : "";
       profile.youtube = !isEmpty(profile.social.youtube)
         ? profile.social.youtube
-        : '';
+        : "";
       profile.instagram = !isEmpty(profile.social.instagram)
         ? profile.social.instagram
-        : '';
+        : "";
 
       // Set component fields state
       this.setState({
@@ -160,11 +160,11 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: '* Select Hiker Status', value: 0 },
-      { label: 'Level 1 Beginner', value: 'Level 1 Beginner' },
-      { label: 'Level 2 Intermediate', value: 'Level 2 Intermediate' },
-      { label: 'Level 3 Advanced', value: 'Level 3 Advanced' }
-     ];
+      { label: "* Select Hiker Status", value: 0 },
+      { label: "Level 1 Beginner", value: "Level 1 Beginner" },
+      { label: "Level 2 Intermediate", value: "Level 2 Intermediate" },
+      { label: "Level 3 Advanced", value: "Level 3 Advanced" }
+    ];
 
     return (
       <div className="create-profile">
@@ -192,16 +192,16 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   options={options}
                   error={errors.status}
-                  info="Give us an idea of where you are at in your career"
+                  info="Give us an idea of your hiking experience"
                 />
-               
+
                 <TextFieldGroup
                   placeholder="Location"
                   name="location"
                   value={this.state.location}
                   onChange={this.onChange}
                   error={errors.location}
-                  info="City or city & state suggested (eg. Boston, MA)"
+                  info="City or city & state suggested (eg. Chicago, IL)"
                 />
                 <TextFieldGroup
                   placeholder="* Skills"
@@ -210,7 +210,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.skills}
                   info="Please use comma separated values (eg.
-                    HTML,CSS,JavaScript,PHP"
+                    granola munching, machete skills, tent pitching)"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
