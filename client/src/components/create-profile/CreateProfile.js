@@ -162,14 +162,6 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="Give us an idea of your experience level"
                 />
-                {/* <TextFieldGroup
-                  placeholder="Company"
-                  name="company"
-                  value={this.state.company}
-                  onChange={this.onChange}
-                  error={errors.company}
-                  info="Could be your own company or one you work for"
-                /> */}
                 <TextFieldGroup
                   placeholder="Website"
                   name="website"
@@ -195,14 +187,6 @@ class CreateProfile extends Component {
                   info="Please use comma separated values (eg.
                     Hunting, Survival Skills, First-Aid"
                 />
-                {/* <TextFieldGroup
-                  placeholder="Github Username"
-                  name="githubusername"
-                  value={this.state.githubusername}
-                  onChange={this.onChange}
-                  error={errors.githubusername}
-                  info="If you want your latest repos and a Github link, include your username"
-                /> */}
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"
