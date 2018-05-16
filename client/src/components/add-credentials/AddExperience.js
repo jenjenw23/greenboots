@@ -52,7 +52,7 @@ class AddExperience extends Component {
   }
 
   render() {
-    const { errors } = this.state;
+    const { errors } = this.state; //this is the same as doing const errors = this.state.errors;
 
     return (
       <div className="add-experience">
@@ -97,7 +97,7 @@ class AddExperience extends Component {
     );
   }
 }
-
+//linked our properties to our state
 AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
@@ -110,5 +110,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { addExperience })(
+  //withRouter allows us to do a redirect
   withRouter(AddExperience)
 );
