@@ -12,7 +12,7 @@ class AddExperience extends Component {
     this.state = {
       location: "",
       from: "",
-      description: "",
+      // description: "",
       errors: {},
       disabled: false
     };
@@ -33,8 +33,8 @@ class AddExperience extends Component {
 
     const expData = {
       location: this.state.location,
-      from: this.state.from,
-      description: this.state.description
+      from: this.state.from
+      // description: this.state.description
     };
 
     this.props.addExperience(expData, this.props.history);
@@ -43,7 +43,7 @@ class AddExperience extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
+  //check box functionality,  may not need this depending
   onCheck(e) {
     this.setState({
       disabled: !this.state.disabled,
