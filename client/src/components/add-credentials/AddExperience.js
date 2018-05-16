@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addExperience } from '../../actions/profileActions';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addExperience } from "../../actions/profileActions";
+import classnames from "classnames";
 
 class AddExperience extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: '',
-      from: '',
+      location: "",
+      from: "",
+      // description: "",
       errors: {},
       disabled: false
     };
@@ -32,8 +34,8 @@ class AddExperience extends Component {
 
     const expData = {
       location: this.state.location,
-      from: this.state.from,
-      description: this.state.description
+      from: this.state.from
+      // description: this.state.description
     };
 
     this.props.addExperience(expData, this.props.history);
@@ -42,7 +44,7 @@ class AddExperience extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
-
+  //check box functionality,  may not need this depending
   onCheck(e) {
     this.setState({
       disabled: !this.state.disabled,
@@ -51,7 +53,7 @@ class AddExperience extends Component {
   }
 
   render() {
-    const { errors } = this.state;
+    const { errors } = this.state; //this is the same as doing const errors = this.state.errors;
 
     return (
       <div className="add-experience">
@@ -63,8 +65,8 @@ class AddExperience extends Component {
               </Link>
               <h1 className="display-4 text-center">Add Experience</h1>
               <p className="lead text-center">
-                Add any experience you may have with hiking. Add a location or when you started.
-                eg. classes, camping, rock climbing, etc. 
+                Add any experience you may have with hiking. Add a location or
+                when you started. eg. classes, camping, rock climbing, etc.
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
@@ -83,7 +85,7 @@ class AddExperience extends Component {
                   onChange={this.onChange}
                   error={errors.from}
                 />
-              <input
+                <input
                   type="submit"
                   value="Submit"
                   className="btn btn-info btn-block mt-4"
@@ -96,7 +98,7 @@ class AddExperience extends Component {
     );
   }
 }
-
+//linked our properties to our state
 AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
@@ -109,5 +111,6 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { addExperience })(
+  //withRouter allows us to do a redirect
   withRouter(AddExperience)
 );

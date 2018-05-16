@@ -1,9 +1,11 @@
-import React from 'react';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
+import React from "react";
+import classnames from "classnames";
+import PropTypes from "prop-types";
 
 const SelectListGroup = ({ name, value, error, info, onChange, options }) => {
+  //for each one we wil call it option
   const selectOptions = options.map(option => (
+    //render an option tag that has a key of label and a value
     <option key={option.label} value={option.value}>
       {option.label}
     </option>
@@ -11,8 +13,8 @@ const SelectListGroup = ({ name, value, error, info, onChange, options }) => {
   return (
     <div className="form-group">
       <select
-        className={classnames('form-control form-control-lg', {
-          'is-invalid': error
+        className={classnames("form-control form-control-lg", {
+          "is-invalid": error
         })}
         name={name}
         value={value}

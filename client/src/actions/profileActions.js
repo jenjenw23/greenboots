@@ -76,18 +76,18 @@ export const addExperience = (expData, history) => dispatch => {
     );
 };
 
-// Add education
-export const addEducation = (eduData, history) => dispatch => {
-  axios
-    .post("/api/profile/education", eduData)
-    .then(res => history.push("/dashboard"))
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
+// // Add education
+// export const addEducation = (eduData, history) => dispatch => {
+//   axios
+//     .post("/api/profile/education", eduData)
+//     .then(res => history.push("/dashboard"))
+//     .catch(err =>
+//       dispatch({
+//         type: GET_ERRORS,
+//         payload: err.response.data
+//       })
+//     );
+// };
 
 // Delete Experience
 export const deleteExperience = id => dispatch => {
@@ -108,22 +108,22 @@ export const deleteExperience = id => dispatch => {
 };
 
 // Delete Education
-export const deleteEducation = id => dispatch => {
-  axios
-    .delete(`/api/profile/education/${id}`)
-    .then(res =>
-      dispatch({
-        type: GET_PROFILE,
-        payload: res.data
-      })
-    )
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
+// export const deleteEducation = id => dispatch => {
+//   axios
+//     .delete(`/api/profile/education/${id}`)
+//     .then(res =>
+//       dispatch({
+//         type: GET_PROFILE,
+//         payload: res.data
+//       })
+//     )
+//     .catch(err =>
+//       dispatch({
+//         type: GET_ERRORS,
+//         payload: err.response.data
+//       })
+//     );
+// };
 
 // Get all profiles
 export const getProfiles = () => dispatch => {
@@ -148,10 +148,12 @@ export const getProfiles = () => dispatch => {
 export const deleteAccount = () => dispatch => {
   if (window.confirm("Are you sure? This can NOT be undone!")) {
     axios
+      //delete request to api/profile
       .delete("/api/profile")
       .then(res =>
         dispatch({
           type: SET_CURRENT_USER,
+          //empty payload object sets user to nothing
           payload: {}
         })
       )
