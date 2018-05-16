@@ -12,16 +12,15 @@ const ProfileSchema = new Schema({
     required: true,
     max: 40
   },
- 
+
   location: {
     type: String
   },
-  
+
   skills: {
     type: [String],
     required: true
   },
- 
 
   experience: [
     {
@@ -29,13 +28,20 @@ const ProfileSchema = new Schema({
         type: Date,
         require: true
       },
-      
-      desription: {
+      location: {
+        type: String
+      },
+      trails: {
+        type: String
+        // required: true
+      },
+
+      description: {
         type: String
       }
     }
   ],
-  
+
   social: {
     youtube: {
       type: String

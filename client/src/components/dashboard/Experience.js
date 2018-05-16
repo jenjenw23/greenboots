@@ -11,9 +11,10 @@ class Experience extends Component {
   }
 
   render() {
+    //map the experience array
     const experience = this.props.experience.map(exp => (
       <tr key={exp._id}>
-        <td>{exp.trails}</td>
+        <td>{exp.location}</td>
         <td>
           <Moment format="DD/MM/YYYY">{exp.from}</Moment>
         </td>
