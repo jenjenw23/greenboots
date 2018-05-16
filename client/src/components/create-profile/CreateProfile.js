@@ -40,8 +40,12 @@ class CreateProfile extends Component {
     // we have to get all of our form fields, profile fields
     const profileData = {
       handle: this.state.handle,
+      company: this.state.company,
+      website: this.state.website,
       location: this.state.location,
+      status: this.state.status,
       skills: this.state.skills,
+      githubusername: this.state.githubusername,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -139,7 +143,7 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL."
+                  info="A unique handle for your profile URL. Your full name, company name, nickname"
                 />
                 <SelectListGroup
                   placeholder="Status"
@@ -148,7 +152,15 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   options={options}
                   error={errors.status}
-                  info="What is your skill level in hiking"
+                  info="Give us an idea of your experience level"
+                />
+                <TextFieldGroup
+                  placeholder="Website"
+                  name="website"
+                  value={this.state.website}
+                  onChange={this.onChange}
+                  error={errors.website}
+                  info="Could be your own website or a company one"
                 />
                 <TextFieldGroup
                   placeholder="Location"
@@ -164,8 +176,7 @@ class CreateProfile extends Component {
                   value={this.state.skills}
                   onChange={this.onChange}
                   error={errors.skills}
-                  info="Please use comma separated values (eg.
-                    granola munching, machete skills, pitching a tent)"
+                  info="Please use comma separated values (eg. granola munching, machete skills, pitching a tent)"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
@@ -203,17 +214,14 @@ class CreateProfile extends Component {
     );
   }
 }
-
 CreateProfile.propTypes = {
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
-
 const mapStateToProps = state => ({
   profile: state.profile,
   errors: state.errors
 });
-
 export default connect(mapStateToProps, { createProfile })(
   withRouter(CreateProfile)
 );

@@ -106,12 +106,10 @@ class CreateProfile extends Component {
     //all we are doing is getting everything in the form and calling createProfile again //see line 122
     const profileData = {
       handle: this.state.handle,
-      company: this.state.company,
       website: this.state.website,
       location: this.state.location,
       status: this.state.status,
       skills: this.state.skills,
-      githubusername: this.state.githubusername,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -244,14 +242,6 @@ class CreateProfile extends Component {
                   info="Please use comma separated values (eg.
                     Building shelter, hunting, pitching a tent"
                 />
-                {/* <TextFieldGroup
-                  placeholder="Github Username"
-                  name="githubusername"
-                  value={this.state.githubusername}
-                  onChange={this.onChange}
-                  error={errors.githubusername}
-                  info="If you want your latest repos and a Github link, include your username"
-                /> */}
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
                   name="bio"
