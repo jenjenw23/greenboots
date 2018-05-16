@@ -181,11 +181,6 @@ class CreateProfile extends Component {
       { label: 'Beginner', value: 'Beginner' },
       { label: 'Intermediate', value: 'Intermediate' },
       { label: 'Expert', value: 'Expert' },
-      // { label: 'Manager', value: 'Manager' },
-      // { label: 'Student or Learning', value: 'Student or Learning' },
-      // { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
-      // { label: 'Intern', value: 'Intern' },
-      // { label: 'Other', value: 'Other' }
     ];
 
     return (
