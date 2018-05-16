@@ -8,6 +8,7 @@ import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
 import { createProfile, getCurrentProfile } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
+import classnames from "classnames";
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -188,11 +189,6 @@ class CreateProfile extends Component {
       { label: "Beginner", value: "Beginner" },
       { label: "Intermediate", value: "Intermediate" },
       { label: "Expert", value: "Expert" }
-      // { label: 'Manager', value: 'Manager' },
-      // { label: 'Student or Learning', value: 'Student or Learning' },
-      // { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
-      // { label: 'Intern', value: 'Intern' },
-      // { label: 'Other', value: 'Other' }
     ];
 
     return (
@@ -223,14 +219,6 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="Give us an idea of what your skill level is"
                 />
-                {/* <TextFieldGroup
-                  placeholder="Company"
-                  name="company"
-                  value={this.state.company}
-                  onChange={this.onChange}
-                  error={errors.company}
-                  info="Could be your own company or one you work for"
-                /> */}
                 <TextFieldGroup
                   placeholder="Website"
                   name="website"
