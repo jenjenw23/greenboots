@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { addExperience } from '../../actions/profileActions';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addExperience } from "../../actions/profileActions";
 
 class AddExperience extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: '',
-      from: '',
+      location: "",
+      from: "",
+      description: "",
       errors: {},
       disabled: false
     };
@@ -63,8 +64,8 @@ class AddExperience extends Component {
               </Link>
               <h1 className="display-4 text-center">Add Experience</h1>
               <p className="lead text-center">
-                Add any experience you may have with hiking. Add a location or when you started.
-                eg. classes, camping, rock climbing, etc. 
+                Add any experience you may have with hiking. Add a location or
+                when you started. eg. classes, camping, rock climbing, etc.
               </p>
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
@@ -83,7 +84,7 @@ class AddExperience extends Component {
                   onChange={this.onChange}
                   error={errors.from}
                 />
-              <input
+                <input
                   type="submit"
                   value="Submit"
                   className="btn btn-info btn-block mt-4"

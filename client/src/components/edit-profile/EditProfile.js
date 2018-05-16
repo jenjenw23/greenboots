@@ -1,80 +1,87 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
-import SelectListGroup from '../common/SelectListGroup';
-import { createProfile, getCurrentProfile } from '../../actions/profileActions';
-import isEmpty from '../../validation/is-empty';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import InputGroup from "../common/InputGroup";
+import SelectListGroup from "../common/SelectListGroup";
+import { createProfile, getCurrentProfile } from "../../actions/profileActions";
+import isEmpty from "../../validation/is-empty";
 
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displaySocialInputs: false,
-      handle: '',
-      company: '',
-      website: '',
-      location: '',
-      status: '',
-      skills: '',
-      githubusername: '',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
+      handle: "",
+      company: "",
+      website: "",
+      location: "",
+      status: "",
+      skills: "",
+      githubusername: "",
+      bio: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+      youtube: "",
+      instagram: "",
       errors: {}
     };
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
+  //fetches the profile when the component loads,
+  //profile will then be passed to mapStateToProps where it
+  //will get mapped to properties, then componentWillReceiveProps will run
+  //check for profile, go to line 50 for next sequence
   componentDidMount() {
     this.props.getCurrentProfile();
   }
-
+  //we want to see if the profile has come in from the state, we check for the profile
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
 
     if (nextProps.profile.profile) {
+      //set this variable to the profile so we can access all the fields
       const profile = nextProps.profile.profile;
 
-      // Bring skills array back to CSV
-      const skillsCSV = profile.skills.join(',');
+      // Bring skills array back to CSV ( comma, seperated, values)
+      //take the skills array and turn it back to a string and seperate each value with a comma  that's what .join(",") does
+      const skillsCSV = profile.skills.join(",");
 
-      // If profile field doesnt exist, make empty string
-      profile.company = !isEmpty(profile.company) ? profile.company : '';
-      profile.website = !isEmpty(profile.website) ? profile.website : '';
-      profile.location = !isEmpty(profile.location) ? profile.location : '';
+      // If profile field doesn't exist, make empty string
+      profile.company = !isEmpty(profile.company) ? profile.company : "";
+      profile.website = !isEmpty(profile.website) ? profile.website : "";
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
+      //if there isn't a github profile, leave it as empty text (hence the "" on line 59)
       profile.githubusername = !isEmpty(profile.githubusername)
         ? profile.githubusername
-        : '';
-      profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+        : "";
+      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+      //social is its own object, therefore we use and empty object `{}`
       profile.social = !isEmpty(profile.social) ? profile.social : {};
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
-        : '';
+        : "";
       profile.facebook = !isEmpty(profile.social.facebook)
         ? profile.social.facebook
-        : '';
+        : "";
       profile.linkedin = !isEmpty(profile.social.linkedin)
         ? profile.social.linkedin
-        : '';
+        : "";
       profile.youtube = !isEmpty(profile.social.youtube)
         ? profile.social.youtube
-        : '';
+        : "";
       profile.instagram = !isEmpty(profile.social.instagram)
         ? profile.social.instagram
-        : '';
+        : "";
 
-      // Set component fields state
+      // Set component fields state which should fill the forms
       this.setState({
         handle: profile.handle,
         company: profile.company,
@@ -95,7 +102,7 @@ class CreateProfile extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+    //all we are doing is getting everything in the form and calling createProfile again //see line 122
     const profileData = {
       handle: this.state.handle,
       company: this.state.company,
@@ -177,10 +184,10 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: '* Select Hiking Status', value: 0 },
-      { label: 'Beginner', value: 'Beginner' },
-      { label: 'Intermediate', value: 'Intermediate' },
-      { label: 'Expert', value: 'Expert' },
+      { label: "* Select Hiking Status", value: 0 },
+      { label: "Beginner", value: "Beginner" },
+      { label: "Intermediate", value: "Intermediate" },
+      { label: "Expert", value: "Expert" }
       // { label: 'Manager', value: 'Manager' },
       // { label: 'Student or Learning', value: 'Student or Learning' },
       // { label: 'Instructor or Teacher', value: 'Instructor or Teacher' },
@@ -297,6 +304,7 @@ class CreateProfile extends Component {
 
 CreateProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  //getCurrentProfile comes from the profile state that is hooked up under const mapStateToProps/profile: state.props
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired

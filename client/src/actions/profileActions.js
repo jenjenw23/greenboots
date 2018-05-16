@@ -148,10 +148,12 @@ export const getProfiles = () => dispatch => {
 export const deleteAccount = () => dispatch => {
   if (window.confirm("Are you sure? This can NOT be undone!")) {
     axios
+      //delete request to api/profile
       .delete("/api/profile")
       .then(res =>
         dispatch({
           type: SET_CURRENT_USER,
+          //empty payload object sets user to nothing
           payload: {}
         })
       )

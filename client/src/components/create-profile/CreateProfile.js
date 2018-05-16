@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import TextFieldGroup from '../common/TextFieldGroup';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import InputGroup from '../common/InputGroup';
-import SelectListGroup from '../common/SelectListGroup';
-import { createProfile } from '../../actions/profileActions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import TextFieldGroup from "../common/TextFieldGroup";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import InputGroup from "../common/InputGroup";
+import SelectListGroup from "../common/SelectListGroup";
+import { createProfile } from "../../actions/profileActions";
 
 class CreateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displaySocialInputs: false,
-      handle: '',
-      location: '',
-      skills: '',
-      bio: '',
-      twitter: '',
-      facebook: '',
-      linkedin: '',
-      youtube: '',
-      instagram: '',
+      handle: "",
+      location: "",
+      skills: "",
+      bio: "",
+      twitter: "",
+      facebook: "",
+      linkedin: "",
+      youtube: "",
+      instagram: "",
       errors: {}
     };
 
@@ -37,7 +37,7 @@ class CreateProfile extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+    // we have to get all of our form fields, profile fields
     const profileData = {
       handle: this.state.handle,
       location: this.state.location,
@@ -58,6 +58,7 @@ class CreateProfile extends Component {
   }
 
   render() {
+    //destructuring taking errors from this.state which can be found on line 25
     const { errors, displaySocialInputs } = this.state;
 
     let socialInputs;
@@ -115,10 +116,10 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: '* Select Hiker Status', value: 0 },
-      { label: 'Level 1 Beginner', value: 'Level 1 Beginner' },
-      { label: 'Level 2 Intermediate', value: 'Level 2 Intermediate' },
-      { label: 'Level 3 Advanced', value: 'Level 3 Advanced' }
+      { label: "* Select Hiker Status", value: 0 },
+      { label: "Level 1 Beginner", value: "Level 1 Beginner" },
+      { label: "Level 2 Intermediate", value: "Level 2 Intermediate" },
+      { label: "Level 3 Advanced", value: "Level 3 Advanced" }
     ];
 
     return (
@@ -140,7 +141,7 @@ class CreateProfile extends Component {
                   error={errors.handle}
                   info="A unique handle for your profile URL."
                 />
-                 <SelectListGroup
+                <SelectListGroup
                   placeholder="Status"
                   name="status"
                   value={this.state.status}
@@ -155,7 +156,7 @@ class CreateProfile extends Component {
                   value={this.state.location}
                   onChange={this.onChange}
                   error={errors.location}
-                  info="What is your location (eg. Boston, MA)"
+                  info="What is your location (eg. Chicago, IL)"
                 />
                 <TextFieldGroup
                   placeholder="* Skills"
@@ -164,7 +165,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.skills}
                   info="Please use comma separated values (eg.
-                    HTML,CSS,JavaScript,PHP"
+                    granola munching, machete skills, pitching a tent)"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
