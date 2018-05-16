@@ -11,6 +11,7 @@ class Profiles extends Component {
   }
 
   render() {
+    //destructuring to get our profile
     const { profiles, loading } = this.props.profile;
     let profileItems;
 
@@ -18,6 +19,7 @@ class Profiles extends Component {
       profileItems = <Spinner />;
     } else {
       if (profiles.length > 0) {
+        //map through our profile items
         profileItems = profiles.map(profile => (
           <ProfileItem key={profile._id} profile={profile} />
         ));
