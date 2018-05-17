@@ -37,7 +37,16 @@ class Search extends Component {
     zipcodeTranslate = event =>{
     event.preventDefault();
     this.runSearch();
-     }
+    }
+
+    handleKeyDown(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault(); // Let's stop this event.
+        event.stopPropagation(); // Really this time.
+    
+        // "Hahaha, I'm gonna submit anyway!" - Chrome
+      }
+    }
 
     runSearch(){
       fetch("https://www.hikingproject.com/data/get-trails?lat="+this.state.lat+"&lon="+this.state.long+"&maxDistance=100&key=200251996-70d1290115a9bb02abe242b4a58c7e3b")
@@ -65,14 +74,18 @@ class Search extends Component {
       <div>
         <Wrapper>
           <div className="container">
-          <div className="spacer"></div>
+          <div className="text-center">
+          <h1>Search Trails</h1>
             <div className="row">
-              <form>
-              <input id='pac-input' className='form-control form-control-lg pac-input' type='text' placeholder='Enter a location, zip code, or address' />
-              <button type='submit' className='btn btn-primary' onClick={this.zipcodeTranslate}>Search for Trails</button> 
-              </form> 
+              <div className="col">
+                <form>
+                  <input id='pac-input' className='form-control form-control-lg pac-input' type='text' placeholder='Enter a location, zip code, or address' />
+                  <br/>
+                  <button type='submit' className='btn btn-primary' onClick={this.zipcodeTranslate}>Search for Trails</button> 
+                </form> 
+              </div>
             </div>  
-                   
+          </div>       
             <div className="row">
               {this.state.items.map(item => (
                 <TrailCard
