@@ -36,7 +36,8 @@ class Dashboard extends Component {
           <div>
             <p className="lead text-muted">
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
-            </p>
+              {' '} (Please click on your name to access your profile page)
+            </p> 
             <ProfileActions />
             <Experience experience={profile.experience} />
             <div style={{ marginBottom: "60px" }} />
