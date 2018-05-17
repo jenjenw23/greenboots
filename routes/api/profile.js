@@ -150,14 +150,11 @@ router.post(
     profileFields.user = req.user.id;
     if (req.body.handle) profileFields.handle = req.body.handle;
     if (req.body.trails) profileFields.trails = req.body.trails;
-    if (req.body.website) profileFields.website = req.body.website;
     if (req.body.location) profileFields.location = req.body.location;
     if (req.body.bio) profileFields.bio = req.body.bio;
     if (req.body.status) profileFields.status = req.body.status;
     if (req.body.handle) profileFields.handle = req.body.handle;
-    if (req.body.githubusername)
-      profileFields.githubusername = req.body.githubusername;
-
+    
     //Skills - Split into Array using split() method
     if (typeof req.body.skills !== "undefined") {
       profileFields.skills = req.body.skills.split(",");
@@ -255,39 +252,6 @@ router.post(
 // @desc  Add education to profile
 // @access Private
 
-router.post(
-  "/education",
-  passport.authenticate("jwt", {
-    session: false
-  }),
-  (req, res) => {
-    const { errors, isValid } = validateEducationInput(req.body);
-
-    //Check validation
-    if (!isValid) {
-      //Return any errors with 400 status
-      return res.status(400).json(errors);
-    }
-
-    Profile.findOne({
-      user: req.user.id
-    }).then(profile => {
-      const newEdu = {
-        school: req.body.school,
-        degree: req.body.degree,
-        fieldofstudy: req.body.fieldofstudy,
-        from: req.body.from,
-        to: req.body.to,
-        current: req.body.current,
-        description: req.body.description
-      };
-      //add to education array
-      profile.education.unshift(newEdu);
-
-      profile.save().then(profile => res.json(profile));
-    });
-  }
-);
 
 // ───────────────────────────────────────────────────────── DELETE EDUCATION ─────
 // @route DELETE api/profile/education/:edu_id
