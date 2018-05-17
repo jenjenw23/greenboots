@@ -16,12 +16,9 @@ class CreateProfile extends Component {
     this.state = {
       displaySocialInputs: false,
       handle: "",
-      company: "",
-      website: "",
       location: "",
       status: "",
       skills: "",
-      githubusername: "",
       bio: "",
       twitter: "",
       facebook: "",
@@ -56,14 +53,9 @@ class CreateProfile extends Component {
       const skillsCSV = profile.skills.join(",");
 
       // If profile field doesn't exist, make empty string
-      profile.company = !isEmpty(profile.company) ? profile.company : "";
-      profile.website = !isEmpty(profile.website) ? profile.website : "";
       profile.location = !isEmpty(profile.location) ? profile.location : "";
       //if there isn't a github profile, leave it as empty text (hence the "" on line 59)
-      profile.githubusername = !isEmpty(profile.githubusername)
-        ? profile.githubusername
-        : "";
-      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+     profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
       //social is its own object, therefore we use and empty object `{}`
       profile.social = !isEmpty(profile.social) ? profile.social : {};
       profile.twitter = !isEmpty(profile.social.twitter)
@@ -85,12 +77,9 @@ class CreateProfile extends Component {
       // Set component fields state which should fill the forms
       this.setState({
         handle: profile.handle,
-        company: profile.company,
-        website: profile.website,
         location: profile.location,
         status: profile.status,
         skills: skillsCSV,
-        githubusername: profile.githubusername,
         bio: profile.bio,
         twitter: profile.twitter,
         facebook: profile.facebook,
@@ -106,7 +95,6 @@ class CreateProfile extends Component {
     //all we are doing is getting everything in the form and calling createProfile again //see line 122
     const profileData = {
       handle: this.state.handle,
-      website: this.state.website,
       location: this.state.location,
       status: this.state.status,
       skills: this.state.skills,
@@ -206,7 +194,7 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname"
+                  info="A unique handle for your profile URL. "
                 />
                 <SelectListGroup
                   placeholder="Status"
@@ -216,14 +204,6 @@ class CreateProfile extends Component {
                   options={options}
                   error={errors.status}
                   info="Give us an idea of what your skill level is"
-                />
-                <TextFieldGroup
-                  placeholder="Website"
-                  name="website"
-                  value={this.state.website}
-                  onChange={this.onChange}
-                  error={errors.website}
-                  info="Could be your own website or a company one"
                 />
                 <TextFieldGroup
                   placeholder="Location"
