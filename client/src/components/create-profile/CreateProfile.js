@@ -40,12 +40,9 @@ class CreateProfile extends Component {
     // we have to get all of our form fields, profile fields
     const profileData = {
       handle: this.state.handle,
-      company: this.state.company,
-      website: this.state.website,
       location: this.state.location,
       status: this.state.status,
       skills: this.state.skills,
-      githubusername: this.state.githubusername,
       bio: this.state.bio,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
@@ -131,7 +128,7 @@ class CreateProfile extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Create Your Profile</h1>
+              <h1 className="display-4 text-center">Create Your Hiker Profile</h1>
               <p className="lead text-center">
                 Let's get some information to make your profile stand out
               </p>
@@ -143,7 +140,7 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL. Your full name, company name, nickname"
+                  info="A unique handle for your profile URL. "
                 />
                 <SelectListGroup
                   placeholder="Status"
@@ -154,14 +151,7 @@ class CreateProfile extends Component {
                   error={errors.status}
                   info="Give us an idea of your experience level"
                 />
-                <TextFieldGroup
-                  placeholder="Website"
-                  name="website"
-                  value={this.state.website}
-                  onChange={this.onChange}
-                  error={errors.website}
-                  info="Could be your own website or a company one"
-                />
+               
                 <TextFieldGroup
                   placeholder="Location"
                   name="location"
