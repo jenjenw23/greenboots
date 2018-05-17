@@ -8,6 +8,7 @@ import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
 import { createProfile, getCurrentProfile } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
+import classnames from "classnames";
 
 class CreateProfile extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class CreateProfile extends Component {
       displaySocialInputs: false,
       handle: "",
       location: "",
+      status: "",
       skills: "",
       bio: "",
       twitter: "",
@@ -29,25 +31,32 @@ class CreateProfile extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
+  //fetches the profile when the component loads,
+  //profile will then be passed to mapStateToProps where it
+  //will get mapped to properties, then componentWillReceiveProps will run
+  //check for profile, go to line 50 for next sequence
   componentDidMount() {
     this.props.getCurrentProfile();
   }
-
+  //we want to see if the profile has come in from the state, we check for the profile
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
 
     if (nextProps.profile.profile) {
+      //set this variable to the profile so we can access all the fields
       const profile = nextProps.profile.profile;
 
-      // Bring skills array back to CSV
+      // Bring skills array back to CSV ( comma, seperated, values)
+      //take the skills array and turn it back to a string and seperate each value with a comma  that's what .join(",") does
       const skillsCSV = profile.skills.join(",");
 
-      // If profile field doesnt exist, make empty string
+      // If profile field doesn't exist, make empty string
       profile.location = !isEmpty(profile.location) ? profile.location : "";
-      profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+      //if there isn't a github profile, leave it as empty text (hence the "" on line 59)
+     profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+      //social is its own object, therefore we use and empty object `{}`
       profile.social = !isEmpty(profile.social) ? profile.social : {};
       profile.twitter = !isEmpty(profile.social.twitter)
         ? profile.social.twitter
@@ -65,10 +74,11 @@ class CreateProfile extends Component {
         ? profile.social.instagram
         : "";
 
-      // Set component fields state
+      // Set component fields state which should fill the forms
       this.setState({
         handle: profile.handle,
         location: profile.location,
+        status: profile.status,
         skills: skillsCSV,
         bio: profile.bio,
         twitter: profile.twitter,
@@ -82,10 +92,11 @@ class CreateProfile extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-
+    //all we are doing is getting everything in the form and calling createProfile again //see line 122
     const profileData = {
       handle: this.state.handle,
       location: this.state.location,
+      status: this.state.status,
       skills: this.state.skills,
       bio: this.state.bio,
       twitter: this.state.twitter,
@@ -160,10 +171,10 @@ class CreateProfile extends Component {
 
     // Select options for status
     const options = [
-      { label: "* Select Hiker Status", value: 0 },
-      { label: "Level 1 Beginner", value: "Level 1 Beginner" },
-      { label: "Level 2 Intermediate", value: "Level 2 Intermediate" },
-      { label: "Level 3 Advanced", value: "Level 3 Advanced" }
+      { label: "* Select Hiking Status", value: 0 },
+      { label: "Beginner", value: "Beginner" },
+      { label: "Intermediate", value: "Intermediate" },
+      { label: "Expert", value: "Expert" }
     ];
 
     return (
@@ -183,7 +194,7 @@ class CreateProfile extends Component {
                   value={this.state.handle}
                   onChange={this.onChange}
                   error={errors.handle}
-                  info="A unique handle for your profile URL."
+                  info="A unique handle for your profile URL. "
                 />
                 <SelectListGroup
                   placeholder="Status"
@@ -192,9 +203,8 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   options={options}
                   error={errors.status}
-                  info="Give us an idea of your hiking experience"
+                  info="Give us an idea of what your skill level is"
                 />
-
                 <TextFieldGroup
                   placeholder="Location"
                   name="location"
@@ -210,7 +220,7 @@ class CreateProfile extends Component {
                   onChange={this.onChange}
                   error={errors.skills}
                   info="Please use comma separated values (eg.
-                    granola munching, machete skills, tent pitching)"
+                    Building shelter, hunting, pitching a tent"
                 />
                 <TextAreaFieldGroup
                   placeholder="Short Bio"
@@ -220,6 +230,7 @@ class CreateProfile extends Component {
                   error={errors.bio}
                   info="Tell us a little about yourself"
                 />
+
                 <div className="mb-3">
                   <button
                     type="button"
@@ -251,6 +262,7 @@ class CreateProfile extends Component {
 
 CreateProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  //getCurrentProfile comes from the profile state that is hooked up under const mapStateToProps/profile: state.props
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired

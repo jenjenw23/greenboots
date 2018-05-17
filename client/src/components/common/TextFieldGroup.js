@@ -1,3 +1,4 @@
+//the point of this file is for things such as text inputs, email inputs, password inputs
 import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";

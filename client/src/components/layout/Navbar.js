@@ -15,11 +15,11 @@ class Navbar extends Component {
     //authLinks and guestLinks allow us to bind and be contingent on auth state ternary operator on line 91
     const authLinks = (
       <ul className="navbar-nav mr-auto">
-        {/*<li className="nav-item">
-          <Link className="nav-link" to="/register">
-            Sign Up
+        <li className="nav-item">
+          <Link className="nav-link" to="/dashboard">
+            Dashboard
           </Link>
-    </li>*/}
+        </li>
         <li className="nav-item">
           <a
             href=""
@@ -82,10 +82,11 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/search-trails">  {" "}
-                Search Trails{" "}
+                <Link className="nav-link" to="/search-trails">
+                  {" "}
+                  Search Trails{" "}
                 </Link>
-          </li>
+              </li>
             </ul>
 
             <ul className="navbar-nav ml-auto">

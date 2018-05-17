@@ -3,6 +3,7 @@ import isEmpty from "../../validation/is-empty";
 
 class ProfileHeader extends Component {
   render() {
+    //take out profile from the property via destructuring
     const { profile } = this.props;
 
     return (

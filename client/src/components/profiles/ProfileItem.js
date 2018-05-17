@@ -11,6 +11,7 @@ class ProfileItem extends Component {
       <div className="card card-body bg-light mb-3">
         <div className="row">
           <div className="col-2">
+            {/*mongoose on the back end lets us use the profile.user.avatar line below */}
             <img src={profile.user.avatar} alt="" className="rounded-circle" />
           </div>
           <div className="col-lg-6 col-md-4 col-8">
