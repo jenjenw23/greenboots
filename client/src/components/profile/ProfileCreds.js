@@ -9,9 +9,6 @@ class ProfileCreds extends Component {
       <li key={exp._id} className="list-group-item">
         <h4>{exp.trails}</h4>
         <p>
-          <Moment format="DD/MM/YYYY">{exp.from}</Moment>
-        </p>
-        <p>
           {exp.location === "" ? null : (
             <span>
               <strong>Trail Name: </strong> {exp.location}
@@ -19,11 +16,8 @@ class ProfileCreds extends Component {
           )}
         </p>
         <p>
-          {exp.description === "" ? null : (
-            <span>
-              <strong>location: </strong> {exp.description}
-            </span>
-          )}
+          <strong>Date: </strong>
+          <Moment format="DD/MM/YYYY">{exp.from}</Moment>
         </p>
       </li>
     ));
@@ -31,11 +25,11 @@ class ProfileCreds extends Component {
     return (
       <div className="row">
         <div className="col-md-6">
-          <h3 className="text-center text-info">Experience</h3>
+          <h3 className="text-center text-info">Trails Taken</h3>
           {expItems.length > 0 ? (
             <ul className="list-group">{expItems}</ul>
           ) : (
-            <p className="text-center">No Experience Listed</p>
+            <p className="text-center">No Trails Listed</p>
           )}
         </div>
       </div>
