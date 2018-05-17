@@ -91,7 +91,7 @@ class Navbar extends Component {
 
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-item nav-link" href="/trails">
+                <a className="nav-item nav-link" href="/popular-trails">
                   Popular Trails
                 </a>
               </li>
@@ -103,7 +103,6 @@ class Navbar extends Component {
     );
   }
 }
-
 
 Navbar.propTypes = {
   logoutUser: PropTypes.func.isRequired,
