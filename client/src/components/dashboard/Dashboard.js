@@ -47,6 +47,7 @@ class Dashboard extends Component {
             >
               Delete My Account
             </button>
+            <br/>
           </div>
         );
       } else {
