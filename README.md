@@ -30,10 +30,6 @@ $ npm run client
 
 ![profile screen shot](https://user-images.githubusercontent.com/32775452/40248226-d892f2c8-5a94-11e8-8b12-235a560ad6ac.png)
 
-## Find a new trail
-
-![find a trail screen shot](https://user-images.githubusercontent.com/32775452/40248326-34788512-5a95-11e8-99f3-7864c0123bf3.png)
-
 ## Search for a popular trail
 
 ![popluar trail screen shot](https://user-images.githubusercontent.com/32775452/40248258-fde7e61e-5a94-11e8-88e9-78feb9970913.png)
