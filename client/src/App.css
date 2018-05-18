@@ -45,7 +45,7 @@ body {
 }
 .display-4 {
   font-family: 'Scope One', serif;
-  margin-top: 140px;
+  margin-top: 80px;
 }
 .card-form {
   opacity: 0.9;
@@ -79,4 +79,9 @@ body {
 
 h1{
   font-family: 'Scope One', serif;
+}
+
+.card {
+  width: 70%;
+  margin-left: 150px;
 }
