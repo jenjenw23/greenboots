@@ -9,7 +9,7 @@ Greenboots is an application that helps bring the hiking community together, bui
 Clone repository
 
 #### Install dependencies for server
-npm install
+$ npm install
 
 #### Install dependencies for client
 $ npm run client-install
