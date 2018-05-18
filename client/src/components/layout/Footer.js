@@ -14,7 +14,7 @@ import {
 
 
 export default () => {
-  const shareUrl = 'http://github.com/jenjenw23/greenboots';
+  const shareUrl = 'https://greenboots.herokuapp.com/';
   const title = 'Greenboots';
     return (
       <footer className="footer">
