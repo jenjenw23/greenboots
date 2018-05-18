@@ -36,8 +36,7 @@ $ npm run client
 
 #### Search for a popular trail
 
-![Picture](images/popular trail screen shot.png)
-
+![popluar trail screen shot](https://user-images.githubusercontent.com/32775452/40248258-fde7e61e-5a94-11e8-88e9-78feb9970913.png)
 
 
 ## Authors
