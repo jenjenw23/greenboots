@@ -32,7 +32,7 @@ $ npm run client
 
 #### Find a new trail
 
-![Picture](images/find a trail screen shot.png)
+![find a trail screen shot](https://user-images.githubusercontent.com/32775452/40248326-34788512-5a95-11e8-99f3-7864c0123bf3.png)
 
 #### Search for a popular trail
 
