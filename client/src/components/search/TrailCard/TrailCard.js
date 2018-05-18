@@ -18,7 +18,7 @@ const TrailCard = props => (
       <li>Ascent: {props.ascent} </li>
       <li>Descent: {props.descent} </li>
       </ul>
-      <Link to="#" className="btn btn-sm btn-primary" trailid={props.key}>Add to Favorites</Link>
+      <Link to="#" className="btn btn-sm btn-primary" trailid={props.id}>Add to Favorites</Link>
     </div>
   </div>
 </div>

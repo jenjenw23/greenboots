@@ -30,7 +30,7 @@ class Search extends Component {
         lat: place.geometry.location.lat(),
         long: place.geometry.location.lng()
       });
-      console.log(this.state)
+      // console.log(this.state)
     });
     }
   
@@ -43,8 +43,6 @@ class Search extends Component {
       if (event.keyCode === 13) {
         event.preventDefault(); // Let's stop this event.
         event.stopPropagation(); // Really this time.
-    
-        // "Hahaha, I'm gonna submit anyway!" - Chrome
       }
     }
 
@@ -57,8 +55,8 @@ class Search extends Component {
               isLoaded: true,
               items: response.trails
             });
-            console.log(this.state);
-            console.log(response.trails);
+            // console.log(this.state);
+            //  console.log(response.trails);
           },
           (error) => {
             this.setState({
