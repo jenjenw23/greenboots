@@ -28,7 +28,7 @@ $ npm run client
 ## Examples
 #### Create a profile
 
-![Picture](images/profile screen shot.png)
+![profile screen shot](https://user-images.githubusercontent.com/32775452/40248226-d892f2c8-5a94-11e8-8b12-235a560ad6ac.png)
 
 #### Find a new trail
 
