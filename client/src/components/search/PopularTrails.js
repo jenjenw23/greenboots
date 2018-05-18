@@ -15,7 +15,7 @@ class Popular extends Component {
         <Wrapper>
           <div className="container">
           <div className="text-center">
-          <h1>Popular Trails</h1>
+          <h1 className="display-4">Popular Trails</h1>
           </div>       
             <div className="row">
               {this.state.trails.map(trail => (

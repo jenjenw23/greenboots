@@ -73,7 +73,7 @@ class Search extends Component {
         <Wrapper>
           <div className="container">
           <div className="text-center">
-          <h1>Search Trails</h1>
+          <h1 className="display-4">Search Trails</h1>
             <div className="row">
               <div className="col">
                 <form>

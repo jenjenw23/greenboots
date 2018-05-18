@@ -252,6 +252,7 @@ class CreateProfile extends Component {
                   className="btn btn-info btn-block mt-4"
                 />
               </form>
+              <br/>
             </div>
           </div>
         </div>
