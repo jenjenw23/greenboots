@@ -4,3 +4,4 @@ key.js
 client/node_modules
 yarn.lock
 yarn-error.log
+/build
