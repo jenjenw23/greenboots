@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/config/key_dev.js
+config/key_dev.js
 client/node_modules
 yarn.lock
 yarn-error.log
