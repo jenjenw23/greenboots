@@ -1,6 +1,7 @@
 # Greenboots
 
 ### Greenboots is an application that helps bring the hiking community together, built with MERN! 
+[Greenboots App on Heroku](https://greenboots.herokuapp.com/)
 
 ![homepage screen shot](https://user-images.githubusercontent.com/32775452/40248184-b836e6b0-5a94-11e8-83c0-b78646d15da9.png)
 
